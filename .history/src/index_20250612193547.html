@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite de Aniversário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f4f2;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      max-width: 800px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .text {
+      flex: 1 1 300px;
+    }
+    .text p {
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .text p strong {
+      font-weight: bold;
+    }
+    .image {
+      flex: 0 1 250px;
+    }
+    .image img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .countdown {
+      margin-top: 2rem;
+      background: #e6e6e6;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .image img {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text">
+      <p>Você não sabe qual será o<br><strong>melhor dia da sua vida????</strong></p>
+
+      <p><strong>Não há PROBLEMA! POIS EU DECIDO ISSO POR VOCÊ!</strong></p>
+
+      <p>dia do meu aniversário:<br><strong>09 de julho de 2025 às 20h</strong></p>
+
+      <p>Não precisa trazer nada, nem namoradx, só dinheiro para pagar a minha conta!</p>
+
+      <div id="countdown" class="countdown">CONTAGEM REGRESSIVA</div>
+    </div>
+
+    <div class="image">
+      <img src="./images/aniversariante.png" alt="Aniversariante">
+    </div>
+  </div>
+
+  <script>
+    function atualizaContador() {
+      const destino = new Date("2025-07-09T20:00:00");
+      const agora = new Date();
+      const diff = destino - agora;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "É HOJE! 🎉";
+        return;
+      }
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(atualizaContador, 1000);
+    atualizaContador();
+  </script>
+</body>
+</html>

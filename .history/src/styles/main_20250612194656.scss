@@ -1,0 +1,64 @@
+@use 'hero';
+@use 'variables';
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: variables.$backgroundColor
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    background: #fff;
+    padding: 2rem;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.text {
+    flex: 1 1 300px;
+}
+.text p {
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+.text p strong {
+    font-weight: bold;
+}
+.image {
+    flex: 0 1 250px;
+}
+.image img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.countdown {
+    margin-top: 2rem;
+    background: #e6e6e6;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+    .container {
+    flex-direction: column;
+    text-align: center;
+    }
+    .image img {
+    margin: 0 auto;
+    }
+}

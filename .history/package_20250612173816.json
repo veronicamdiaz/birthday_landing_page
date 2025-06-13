@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "aos": "^2.3.4",
+    "parcel": "^2.15.2"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2"
+  }
+}
